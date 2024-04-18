@@ -27,6 +27,3 @@ app = Flask(__name__)
 
 app.wsgi_app = DispatcherMiddleware(NotFound,{"/api/v1":app1})
 
-# if __name__ == "__main__":
-#     hostedApp.run(port=30000,host="0.0.0.0",debug=True)
-
