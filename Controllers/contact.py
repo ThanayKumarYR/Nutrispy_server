@@ -1,6 +1,9 @@
-from flask import request,jsonify
+from flask import request,jsonify,session,redirect
 from flask_mailman import EmailMessage
 import os
+from firebase_admin import firestore
+from Config import configFirebase
+
 
 def contactEmail():
     if(request.method == 'POST'): 
@@ -18,5 +21,27 @@ def contactEmail():
             reply_to=[email]
         )
         msg.send()
-        return jsonify({"response":"success","status":200,"message":"email sent"})
+        return jsonify({"response":"success","status":200,"data":"email sent"})
     return "<h1>Contact-Email get request-response</h1>"
+
+def contactFirebase():
+    if request.method == 'POST':
+        configFirebase()
+        db = firestore.client()
+        data = request.json
+        contact_ref = db.collection("contacts").document()
+        contact_ref.set(data)
+        return jsonify({"response": "success", "status": 200, "message": "email sent"})
+    return "<h1>Contact get request-response</h1>"
+
+def getContacts():
+    if 'user' not in session:
+        return jsonify({"data":"Login to use this feature","login":False}),200
+    configFirebase()
+    db = firestore.client()
+    contacts_ref = db.collection("contacts").stream()
+    contacts = [contact.to_dict() for contact in contacts_ref]
+    if contacts:
+        return jsonify({"response": "success", "status": 200, "data": contacts})
+    else:
+        return jsonify({"response": "success", "status": 200, "message": "No contacts found"})

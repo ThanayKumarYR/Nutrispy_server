@@ -3,3 +3,6 @@ gunicorn
 flask_cors
 flask_mailman
 python-dotenv
+pyrebase4
+firebase_admin
+werkzeug
