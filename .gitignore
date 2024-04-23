@@ -1,5 +1,4 @@
 .env
 */__pycache__
-key.json
+/etc/secrets/key.json
 test.py
-/etc
