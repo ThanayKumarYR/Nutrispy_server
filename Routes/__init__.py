@@ -32,6 +32,5 @@ def routing(app):
     @app.route('/exerciseRecommendation',methods=['GET'])
     def exerciseRecommendationRoute():
         return exercise_recommendation()
-        
 
     

@@ -21,7 +21,6 @@ def login():
         except Exception as e:
             return jsonify({"An error occured":e,"login":False}),404
             
-
 def logout():
     if 'user' in session:
         session.pop('user')

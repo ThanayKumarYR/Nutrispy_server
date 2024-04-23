@@ -4,7 +4,6 @@ import os
 from firebase_admin import firestore
 from Config import configFirebase
 
-
 def contactEmail():
     if(request.method == 'POST'): 
         name = request.json["name"]
