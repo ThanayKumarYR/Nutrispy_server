@@ -13,7 +13,7 @@ def configEmail(app,mail):
 
 def configFirebase():
     try:
-        path =  os.getcwd() + "\key.json"
+        path =  os.getcwd() + "\etc\secrets\key.json"
         cred = credentials.Certificate(path)
         firebase_admin.initialize_app(cred)
     except Exception as e:
