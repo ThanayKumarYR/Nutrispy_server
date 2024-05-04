@@ -23,10 +23,10 @@ configEmail(Deliveredapp,mail)
 
 Deliveredapp.secret_key = os.getenv("SECRET_KEY")
 
-Deliveredapp.config['SESSION_TYPE'] = 'redis'
-Deliveredapp.config['SESSION_REDIS'] = redis.from_url('redis://localhost:6379')
+# Deliveredapp.config['SESSION_TYPE'] = 'redis'
+# Deliveredapp.config['SESSION_REDIS'] = redis.from_url('redis://localhost:6379')
 
-Session(Deliveredapp)
+# Session(Deliveredapp)
 
 routing(Deliveredapp)
 
