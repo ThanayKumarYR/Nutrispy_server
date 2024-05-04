@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nutrispy-b8b8a",
+  "private_key_id": "96ce5de5ee5aec9eeecb89f180e2017366550fd1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDIpacroC5wo5OJ\nsfU2UgfPl/f+9c1r+AWPAty8SQ/upztDnr8SwanQHwL0xpSbkCSiUWuw6RRvFo84\nTVsxv+sJoPSGsazmexcYrn5EAmX93wRaiNCXOU/XtlzKSJ/ZwZmV35GMfLK8BvYl\niQmFHDxUmj30cYBUVNSJzjM9bic7jGvSyn4+8Lc8DLbgJKTvXK3QP7LO0OrpFk2H\ngM7xZgBqIp1tuBJkKeCQ1ZdvZKCpzUtBEcW/c+0OTh8tTpo617ODAnSf63k42+1K\nI4THvc4afdV/+oG7eFwKMOlcmK1AKckXWoV/xCnskm36cM8sa6KX9sIKI/PIQa8H\nBJUUgwGTAgMBAAECgf8FbiVxAc89QGeV6vJKlJ11Tvw1puS0nbbefapKo5WyjEGC\nOYbOvSqYijfakQPveyrxIfPCP5XJ8pz/dcCl65NQhvnuPmtGjBGB5gcZASTiX3+1\ngMGBr7OLzmKZjo2U/jLbwjJL3m0E20u2ZeORJ9sp1e/0akiL32Zm0FShxZ96s8DN\nVorga86NWwATQqyd03hCvU1/YYSNHX41dWAT/gvUQ5LmPSvdvuTPXK3RpqlSzv0c\nqoVSm0jPMaufZHRhOzEyWV2nOaRuKcxbmy0KTuCmbmo/V/zEJE/5RHVzcqsytAPO\nJnlB2GYgQL88Wk6P5ngKJMoskG3ISxMjEPNhtUECgYEA6VY8PQT8rWO5ldfemKdz\nfJwBwQdCzEe3tny+9AgqVVBzRfXzzme4PrXpcMcFOzMRBUy6X9hLwr34tI9clSYL\narBcc3mtiRxEeievcJIfGygPqw3vb9lxMzxjTtf7IWi0iTakU4zmpxhYgLCje7Iv\nM8n9VFmBy3QAAA3yDgU6ULMCgYEA3CKbvK1VxEc+F/agl2aCDAFWtcI1VzMXkZqD\nH0u9fjMEpIKm0Mlefz5Lp1JbzfEnwOrtGIeYJrEBBpa5aiSvSyMS0Joq2cI6rl4v\nvSkt/NU0h3LKTxZFrPl851q2Nzh8UUMUH9u4+gymxwHlOetPC4Mkms+Vmo0equZU\nIUFPO6ECgYEA0JXHKaEAo5snNp0PnpTqNvVa2Aw+mVBvGNGw/YMjHLrbISo5dUTg\nviZt9OPkeEQxLfSmErHPH9okrnwNfkLRJ+FZ89xM1emQCUbanR3ycptATmAZr3nI\nqM2N1Nhb5UStRo+zHAEz2yF3VCsTKatiaMBjFnkg/xfGPEY7IG9p7uMCgYA15qd5\ngHvCrqsOlQ3nZGstY1qG8MG80z7PISVAEXyZnQZi/ba44sWnpGpD0w+1knnoa92Y\nJwNjXe3hXiCSU980J6dguo8JeNyDe35289FV2iKdk8bjrJFs9D3YLEb3qHYQM7uG\nvXdCirx/eABXuT1GlVruKSv5htpegD1TUzmCYQKBgQCTTUK8E3D/6eUw910IifyW\nZYF44o1Wblh+nfoawnfE/ZzK/dc2epq3S5//eSmUP9NMtS6nVbCZ+DHufpr9KbyD\npgTt4aD/GsChNP1LfYnrcZUl2+zvlSlUWKUJ2gL3pgRNjjubDXboSiNiNg+OvzvI\n2NeyJhPtAkNaBh9rZZHaHw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-hk87z@nutrispy-b8b8a.iam.gserviceaccount.com",
+  "client_id": "102953506745074517076",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-hk87z%40nutrispy-b8b8a.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -17,13 +17,13 @@ def login():
             if user:
                 auth_user =  authenticate.sign_in_with_email_and_password(email, password)
                 session['user'] = auth_user['localId']
-            return jsonify({"data":f"Successfully login, Welcome {auth_user['email']}","login":True}),200
+            return jsonify({"response":"Success","statusCode":200,"data":f"Successfully login, Welcome {auth_user['email']}"})
         except Exception as e:
-            return jsonify({"An error occured":e,"login":False}),404
+             return jsonify({"response":"Failed","statusCode":404,"data":e.args[0]})
             
 def logout():
     if 'user' in session:
         session.pop('user')
-        return jsonify({"data":"Successfully logged out","login":False}),200
+        return jsonify({"response":"Success","statusCode":200,"data":"Successfully logged out"})
     else:
-        return jsonify({"data":"First login to log out !","login":False}),200
+        return jsonify({"response":"Failed","statusCode":404,"data":"First login to log out !"})

@@ -20,7 +20,7 @@ def contactEmail():
             reply_to=[email]
         )
         msg.send()
-        return jsonify({"response":"success","status":200,"data":"email sent"})
+        return jsonify({"response":"success","statusCode":200,"data":"email sent"})
     return "<h1>Contact-Email get request-response</h1>"
 
 def contactFirebase():
@@ -30,17 +30,40 @@ def contactFirebase():
         data = request.json
         contact_ref = db.collection("contacts").document()
         contact_ref.set(data)
-        return jsonify({"response": "success", "status": 200, "message": "email sent"})
-    return "<h1>Contact get request-response</h1>"
+        return jsonify({"response": "Success", "statusCode": 201, "data": "Data as been sent"})
 
 def getContacts():
     if 'user' not in session:
-        return jsonify({"data":"Login to use this feature","login":False}),200
+        return jsonify({"response":"unauthorized","statusCode":401,"data":"Login to use this feature"})
     configFirebase()
     db = firestore.client()
     contacts_ref = db.collection("contacts").stream()
-    contacts = [contact.to_dict() for contact in contacts_ref]
+    contacts = [{"id": contact.id, **contact.to_dict()} for contact in contacts_ref]
     if contacts:
-        return jsonify({"response": "success", "status": 200, "data": contacts})
+        return jsonify({"response": "success", "statusCode": 200, "data": contacts})
     else:
-        return jsonify({"response": "success", "status": 200, "message": "No contacts found"})
+        return jsonify({"response": "Failed", "statusCode": 404, "data": "No contacts found"})
+
+def deleteContact(contact_id):
+    if 'user' not in session:
+         return jsonify({"response":"unauthorized","statusCode":401,"data":"Login to use this feature"})
+    configFirebase()
+    db = firestore.client()
+    contact_ref = db.collection("contacts").document(contact_id)
+    contact = contact_ref.get()
+    if contact.exists:
+        contact_ref.delete()
+        return jsonify({"response": "success", "status": 200, "message": "Contact deleted successfully"})
+    else:
+        return jsonify({"response": "failure", "status": 404, "message": "Contact not found"})
+
+def deleteAllContacts():
+    if 'user' not in session:
+         return jsonify({"response":"unauthorized","statusCode":401,"data":"Login to use this feature"})
+    configFirebase()
+    db = firestore.client()
+    contacts_ref = db.collection("contacts")
+    contacts = contacts_ref.stream()
+    for contact in contacts:
+        contact.reference.delete()
+    return jsonify({"response": "success", "status": 200, "data": "All contacts deleted successfully"}) 
