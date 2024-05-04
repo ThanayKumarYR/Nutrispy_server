@@ -12,7 +12,7 @@ def configEmail(app,mail):
 
 def configFirebase():
     try:
-        path =  os.getcwd() + "\key1.json"
+        path =  os.getcwd() + "/key1.json"
         cred = credentials.Certificate(path)
         return initialize_app(cred)
     except Exception as e:
