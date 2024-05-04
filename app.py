@@ -1,5 +1,4 @@
 #basic template of flask to get started.
-
 from flask import Flask
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.exceptions import NotFound
