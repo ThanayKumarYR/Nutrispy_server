@@ -23,8 +23,6 @@ configEmail(Deliveredapp,mail)
 
 Deliveredapp.secret_key = os.getenv("SECRET_KEY")
 
-configFirebase()
-
 Deliveredapp.config['SESSION_TYPE'] = 'redis'
 Deliveredapp.config['SESSION_REDIS'] = redis.from_url('redis://localhost:6379')
 

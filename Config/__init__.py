@@ -1,6 +1,5 @@
 import os
-import firebase_admin
-from firebase_admin import credentials
+from firebase_admin import credentials,initialize_app
 
 def configEmail(app,mail):
     app.config["MAIL_SERVER"] = "smtps-proxy.fastmail.com"
@@ -13,9 +12,9 @@ def configEmail(app,mail):
 
 def configFirebase():
     try:
-        path =  os.getcwd() + "/key1.json"
+        path =  os.getcwd() + "\key1.json"
         cred = credentials.Certificate(path)
-        firebase_admin.initialize_app(cred)
+        return initialize_app(cred)
     except Exception as e:
         print(e)
 
