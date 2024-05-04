@@ -8,6 +8,8 @@ from flask_mailman import Mail
 import os
 from Config import configEmail,configFirebase
 from Routes import routing
+import redis
+from flask_session import Session
 
 mail = Mail()
 
@@ -22,6 +24,11 @@ configEmail(Deliveredapp,mail)
 Deliveredapp.secret_key = os.getenv("SECRET_KEY")
 
 configFirebase()
+
+Deliveredapp.config['SESSION_TYPE'] = 'redis'
+Deliveredapp.config['SESSION_REDIS'] = redis.from_url('redis://localhost:6379')
+
+Session(Deliveredapp)
 
 routing(Deliveredapp)
 
