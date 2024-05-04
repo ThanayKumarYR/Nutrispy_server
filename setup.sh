@@ -10,5 +10,7 @@ sudo apt install redis-server
 pip install -r requirements.txt
 
 #run redis
+redis-server --version
 redis-server
+redis-cli
 
