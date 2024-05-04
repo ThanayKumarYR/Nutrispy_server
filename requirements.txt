@@ -6,3 +6,5 @@ python-dotenv
 pyrebase4
 firebase_admin
 werkzeug
+Flask-Session
+redis
