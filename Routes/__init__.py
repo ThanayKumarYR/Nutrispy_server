@@ -1,4 +1,4 @@
-from Controllers import home,login,logout,food_detection,diet_recommendation,exercise_recommendation,getContacts,contactFirebase,deleteContact,deleteAllContacts
+from Controllers import home,login,logout,food_detection,diet_recommendation,exercise_recommendation,contactFirebase,contact_operations,deleteContact
 
 def routing(app):
     @app.route('/',methods=['GET'])
@@ -9,13 +9,9 @@ def routing(app):
     def contactRoute():
         return contactFirebase()
     
-    @app.route('/contact', methods=['GET'])
-    def getContactsRoute():
-        return getContacts()
-    
-    @app.route('/contact', methods=['DELETE'])
-    def deleteAllContactsRoute():
-        return deleteAllContacts()
+    @app.route('/contact', methods=['GET','DELETE'])
+    def contact_operationsRoute():
+        return contact_operations()
     
     @app.route('/contact/<contact_id>', methods=['DELETE'])
     def deleteContactRoute(contact_id):
