@@ -1,4 +1,4 @@
-from Controllers import home,login,logout,food_detection,diet_recommendation,exercise_recommendation,contactFirebase,contact_operations,deleteContact
+from Controllers import home,login,logout,food_detection,recommedation,contactFirebase,contact_operations,deleteContact,check_session
 
 def routing(app):
     @app.route('/',methods=['GET'])
@@ -25,16 +25,14 @@ def routing(app):
     def logoutRoute():
         return logout()
     
-    @app.route('/foodDetection',methods=['GET'])
+    @app.route('/detect',methods=['GET'])
     def foodDetectionRoute():
         return food_detection()
     
-    @app.route('/dietRecommedation',methods=['GET'])
+    @app.route('/recommend',methods=['GET','POST'])
     def dietRecommedationRoute():
-        return diet_recommendation()
+        return recommedation()
     
-    @app.route('/exerciseRecommendation',methods=['GET'])
-    def exerciseRecommendationRoute():
-        return exercise_recommendation()
-
-    
+    @app.route('/check_session')
+    def check_sessionRoute():
+        return check_session()

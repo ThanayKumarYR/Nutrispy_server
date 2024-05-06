@@ -1,5 +1,5 @@
 #basic template of flask to get started.
-from flask import Flask
+from flask import Flask,session
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.exceptions import NotFound
 from flask_cors import CORS
@@ -10,6 +10,7 @@ from Config import configEmail
 from Routes import routing
 import redis
 from flask_session import Session
+import atexit
 
 mail = Mail()
 
@@ -31,6 +32,13 @@ Deliveredapp.secret_key = os.getenv("SECRET_KEY")
 routing(Deliveredapp)
 
 app = Flask(__name__)
+
+# Function to clear session when the application is terminated
+def clear_session():
+    session.clear()
+
+# Register the clear_session function to be called when the application is terminated
+atexit.register(clear_session)
 
 app.wsgi_app = DispatcherMiddleware(NotFound,{"/api/v1":Deliveredapp})
 
