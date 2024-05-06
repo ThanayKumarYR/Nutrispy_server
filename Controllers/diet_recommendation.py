@@ -2,7 +2,7 @@ from flask import session,jsonify,request
 from Utilities import is_admin
 from Config import configFirebase_admin
 from firebase_admin import firestore
-from Utilities import get_food_recommender_answer
+from Utilities import get_food_recommender_answer,count_tokens
 from datetime import datetime
 
 def diet_recommendation():
@@ -28,8 +28,9 @@ def recommedation():
     if request.method == 'POST':
         # Handle POST request to store conversation
         question = request.json["question"]
+        if(count_tokens(question)>100):
+            return jsonify({"response": "Failed", "statusCode": 404,"data": "Request cannot exceed 100 tokens."})
         answer = get_food_recommender_answer(question=str(question))
-
         conversation = {
             "question" : question,
             "answer" : answer,

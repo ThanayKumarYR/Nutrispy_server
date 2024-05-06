@@ -27,10 +27,12 @@ def login():
                     # Store user data in Firestore
                     db = firestore.client()
                     user_ref = db.collection('users').document(auth_user['localId'])
-                    user_ref.set({
-                        'email': email,
-                        'uid': auth_user['localId']
-                    })
+                    user_doc = user_ref.get()
+                    if not user_doc.exists:
+                        user_ref.set({
+                            'email': email,
+                            'uid': auth_user['localId']
+                        })
                     return jsonify({"response": "Success", "statusCode": 200, "data": f"Successfully logged in. Welcome {auth_user['email']}"})
                 except Exception as e:
                     return jsonify({"response":"Failed","statusCode":404,"data":"Incorrect password"})
