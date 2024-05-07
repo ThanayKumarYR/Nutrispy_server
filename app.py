@@ -18,7 +18,7 @@ load_dotenv()
 
 Deliveredapp = Flask(__name__)
 # CORS(Deliveredapp,resources={r"/*":{"origins":"https://thanaykumaryr.github.io/*"}})
-CORS(Deliveredapp,resources={r"/*":{"origins":"*"}})
+CORS(Deliveredapp,resources={r"/*":{"origins":"*"}},supports_credentials=True, allow_headers=["Content-Type"])
 
 configEmail(Deliveredapp,mail)
 
