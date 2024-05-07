@@ -1,4 +1,4 @@
-from flask import request,jsonify,session,redirect
+from flask import request,jsonify,Response
 from flask_mailman import EmailMessage
 import os
 from firebase_admin import firestore
@@ -31,6 +31,8 @@ def contactFirebase():
         data = request.json
         contact_ref = db.collection("contacts").document()
         contact_ref.set(data)
+        # response = Response()
+        # response.set_cookie('cookie_name', 'cookie_value', samesite='Strict')
         return jsonify({"response": "Success", "statusCode": 201, "data": "Data as been sent"})
 
 def contact_operations():

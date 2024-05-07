@@ -1,4 +1,4 @@
-from flask import request, session, jsonify
+from flask import request, session, jsonify,Response
 from Config import configPyrebase_auth, configFirebase_admin
 import os
 from firebase_admin import auth,firestore
@@ -33,6 +33,8 @@ def login():
                             'email': email,
                             'uid': auth_user['localId']
                         })
+                    # response = Response()
+                    # response.set_cookie(session["Name"],session["Value"], samesite='Strict')
                     return jsonify({"response": "Success", "statusCode": 200, "data": f"Successfully logged in. Welcome {auth_user['email']}"})
                 except Exception as e:
                     return jsonify({"response":"Failed","statusCode":404,"data":"Incorrect password"})
